@@ -1,0 +1,21 @@
+﻿@page "/Game/Add"
+@page "/Game/Edit/{Id:int}"
+
+<EditForm EditContext="EditContext" OnSubmit="OnSubmit">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label>Title:</label>
+        <div>
+            <InputText class="form-control" placeholder="Username" @bind-Value="@Game.Title" />
+            <ValidationMessage For="@(() => Game.Title)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password:</label>
+        <div>
+            <input type="file" accept=".jfif" @onchange="ImageSelected" />
+            <ValidationMessage For="@(() => Game.Picture)" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Log in</button>
+</EditForm>

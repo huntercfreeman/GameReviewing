@@ -9,7 +9,7 @@ namespace GameReviewing.Services.Interfaces
     public interface IGameService
     {
         public List<Game> GetGames();
-        public Game GetGameByName(string name);
+        public Game GetGameByTitle(string title);
         public List<Game> GetGamesByRating(double rating);
         public Game GetGameById(int id);
     }

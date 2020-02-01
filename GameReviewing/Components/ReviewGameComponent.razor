@@ -1,7 +1,7 @@
 ﻿@if(Game != null)
 {
     <div class="reviewGameComponent" style="position: fixed; top: @(Top)px; left: @(Left)px; background-color: gray; padding: 10px;">
-        Reviewing @Game.Name
+        Reviewing @Game.Title
         <div>
             <input @bind-value="Rating" type="number" />
             <textarea @bind="Description"></textarea>

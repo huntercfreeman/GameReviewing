@@ -12,18 +12,19 @@
         <div style="position: relative;">
                 @foreach (Game game in Games)
                 {
-                <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                    <div style="display: flex; align-items: center; width: 200px; height: 200px;">
-                        @if (!string.IsNullOrWhiteSpace(game.ImagePath))
-                        {
-                            <img src="@game.ImagePath" style="        max-width: 200px;
-        max-height: 200px;"/>
-                        }
-                    </div>
-                    @game.Name, @(game.Rating)
-                    <div @onclick="((MouseEventArgs e) => ReviewGame(e, game))" class="btn btn-primary">Review</div>
-                    <div @onclick="(() => NavigateToGame(game.Id))" class="btn btn-secondary">Details</div>
+            <div style="margin-bottom: 5px; display: flex; align-items: center;">
+                <div style="display: flex; align-items: center; width: 200px; height: 200px;">
+                    @if (!string.IsNullOrWhiteSpace(game.ImagePath))
+                    {
+                        <img src="@game.ImagePath" style="        max-width: 200px;
+        max-height: 200px;" />
+                    }
                 </div>
+                @game.Title, @(game.Rating)
+                <div @onclick="((MouseEventArgs e) => ReviewGame(e, game))" class="btn btn-primary">Review</div>
+                <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-secondary">Details</div>
+                <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-secondary">Details</div>
+            </div>
                 }
             <ReviewGameComponent Game="@CurrentlyReviewing" Parent="this" />
         </div>
@@ -39,9 +40,14 @@
 
     public ReviewGameComponent ReviewGameComponent { get; set; }
 
-    public void NavigateToGame(int id)
+    public void NavigateToGameDetails(int id)
     {
         NavigationManager.NavigateTo($"/Game/Details/{id}");
+    }
+
+    public void NavigateToGameEdit(int id)
+    {
+        NavigationManager.NavigateTo($"/Game/Edit/{id}");
     }
 
     protected override void OnInitialized()

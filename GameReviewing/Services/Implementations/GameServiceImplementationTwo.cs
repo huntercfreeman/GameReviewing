@@ -20,21 +20,21 @@ namespace GameReviewing.Services.Implementations
         {
             new Game
             {
-                Name = "World of Warcraft",
+                Title = "World of Warcraft",
                 Reviews = new List<Review> { new Review { Rating = 5, Description = "Love it", UserUsername = "jarrett_goldberg@gmail.com" } },
                 Id = 1,
                 ImagePath = "content/images/WorldOfWarcraft.jfif"
             },
             new Game
             {
-                Name = "Pokemon",
+                Title = "Pokemon",
                 Reviews = new List<Review> { new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" } },
                 Id = 2,
                 ImagePath = "content/images/pokemon.jfif"
             },
             new Game
             {
-                Name = "Grand Theft Auto",
+                Title = "Grand Theft Auto",
                 Reviews = new List<Review> 
                 { 
                     new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
@@ -51,10 +51,10 @@ namespace GameReviewing.Services.Implementations
             get => _nextId++;
         }
 
-        public Game GetGameByName(string name)
+        public Game GetGameByTitle(string title)
         {
             _logger.Log("GetGameByName was called");
-            return _games.Where(x => x.Name.CompareTo(name) == 0).FirstOrDefault();
+            return _games.Where(x => x.Title.CompareTo(title) == 0).FirstOrDefault();
         }
 
         public List<Game> GetGames()

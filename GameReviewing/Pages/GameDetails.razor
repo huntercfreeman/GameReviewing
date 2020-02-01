@@ -2,7 +2,7 @@
 @using GameReviewing.Models
 
 <img src="@ThisGame.ImagePath" />
-<h1>@ThisGame.Name</h1>
+<h1>@ThisGame.Title</h1>
 <ul>
     @foreach(Review review in ThisGame.GetReviews())
     {
