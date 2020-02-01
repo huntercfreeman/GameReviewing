@@ -65,6 +65,10 @@ namespace GameReviewing.Pages
 
         private void NavigationManager_LocationChanged(object sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
         {
+            // When going from editing a game to adding a game the page goes from
+            // /game/edit/1 ---> /game/add the route changes but both routes lead
+            // to GameForm.razor so nothing changes. The page is therefore manually
+            // reloaded.
             JSRuntime.InvokeVoidAsync("LocationReload");
         }
 
