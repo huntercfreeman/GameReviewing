@@ -74,5 +74,19 @@ namespace GameReviewing.Services.Implementations
             _logger.Log("GetGameById");
             return _games.Where(x => x.Id == id).FirstOrDefault();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>
+        ///     returns bool to indicate if
+        ///     adding the game was successful.
+        /// </returns>
+        public bool AddGame(Game game)
+        {
+            _games.Add(game);
+
+            return true;
+        }
     }
 }

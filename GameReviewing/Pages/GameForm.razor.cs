@@ -20,6 +20,7 @@ namespace GameReviewing.Pages
         public int Id { get; set; }
 
         public GameFormViewModel Game { get; set; }
+        public Game GameFromId { get; set; }
         public EditContext EditContext { get; set; }
 
         protected override void OnInitialized()
@@ -28,24 +29,24 @@ namespace GameReviewing.Pages
             
             if (Id != 0)
             {
-                Game gameFromId = GameService.GetGameById(Id);
+                GameFromId = GameService.GetGameById(Id);
 
-                if(!(gameFromId.Id == 0))
+                if(!(GameFromId.Id == 0))
                 {
-                    Game = new GameFormViewModel { Title = gameFromId.Title };
+                    Game = new GameFormViewModel { Title = GameFromId.Title };
                 }
                 else
                 {
                     Game = new GameFormViewModel { Title = "Error game with Id:" + Id + " was not found" };
                 }
             }
-            else if (GameParameter == null)
+            else if (GameParameter != null)
             {
-                Game = new GameFormViewModel();
+                Game = new GameFormViewModel() { Title = GameParameter.Title };
             }
             else
             {
-                Game = new GameFormViewModel() { Title = GameParameter.Title };
+                Game = new GameFormViewModel();
             }
 
             EditContext = new EditContext(Game);
@@ -53,7 +54,18 @@ namespace GameReviewing.Pages
 
         public void OnSubmit()
         {
-
+            if(Id != 0)
+            {
+                GameFromId.Title = Game.Title;
+            }
+            else if(GameParameter != null)
+            {
+                GameParameter.Title = Game.Title;
+            }
+            else
+            {
+                GameService.AddGame(new Game { Id = GameService.NextId, Title = Game.Title });
+            }
         }
 
         public void ImageSelected()
