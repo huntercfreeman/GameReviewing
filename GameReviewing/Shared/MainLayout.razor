@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        @if (!(UserState.Username.CompareTo("Guest") == 0))
+        {
+            <text>Logged in as: @UserState.Username</text>
+        }
+        else
+        {
+            <text>Logged in as: Guest&nbsp;</text> <span @onclick="NavigateToLogin" style="color: dodgerblue; cursor: pointer;">(Log In / Sign Up)</span>
+        }
+
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>

@@ -1,0 +1,11 @@
+﻿@page "/Game/Details/{Id:int}"
+@using GameReviewing.Models
+
+<img src="@ThisGame.ImagePath" />
+<h1>@ThisGame.Name</h1>
+<ul>
+    @foreach(Review review in ThisGame.GetReviews())
+    {
+        <li>@review.Rating, @review.Description, @review.UserUsername</li>    
+    }
+</ul>
