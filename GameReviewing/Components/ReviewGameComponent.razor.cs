@@ -1,5 +1,7 @@
 ﻿using GameReviewing.Models;
+using GameReviewing.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +19,9 @@ namespace GameReviewing.Components
         [Parameter]
         public GameReviewing.Pages.Index Parent { get; set; }
 
-        public double Rating { get; set; }
+        public ReviewGameViewModel Review { get; set; } = new ReviewGameViewModel() { Rating = 1 };
 
-        public string Description { get; set; }
+        public EditContext EditContext { get; set; }
 
         private double _left;
         public double Left 
@@ -52,14 +54,15 @@ namespace GameReviewing.Components
         {
             base.OnInitialized();
             Parent.ReviewGameComponent = this;
+            EditContext = new EditContext(Review);
         }
 
         public void LeaveReview()   
         {
             Review review = new Review
             {
-                Rating = Rating,
-                Description = Description,
+                Rating = Review.Rating,
+                Description = Review.Description,
                 UserUsername = UserState.Username 
             };
 

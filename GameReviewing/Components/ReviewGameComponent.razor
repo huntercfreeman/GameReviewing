@@ -1,11 +1,31 @@
-﻿@if(Game != null)
+﻿@if (Game != null)
 {
-    <div class="reviewGameComponent" style="position: fixed; top: @(Top)px; left: @(Left)px; background-color: gray; padding: 10px;">
-        Reviewing @Game.Title
-        <div>
-            <input @bind-value="Rating" type="number" />
-            <textarea @bind="Description"></textarea>
-            <div @onclick="LeaveReview" class="btn btn-primary">Leave Review</div>
-        </div>
+    <div class="reviewGameComponent" style="position: fixed; top: @(Top)px; left: @(Left)px; background-color: lightgray; padding: 10px; width:425px;">
+        <EditForm EditContext="EditContext" OnSubmit="LeaveReview">
+            <DataAnnotationsValidator />
+            <div style="display: flex; justify-content: space-between;">
+                <div style="width: 310px;">
+                    Reviewing @Game.Title
+                </div>
+                <div @onclick="(() => Game = null)" style="cursor: pointer;">
+                    X
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Rating:</label>
+                <div>
+                    <InputNumber class="form-control" placeholder="Rating" @bind-Value="@Review.Rating" />
+                    <ValidationMessage For="@(() => Review.Rating)" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Description (optional):</label>
+                <div>
+                    <InputTextArea class="form-control" placeholder="Description" @bind-Value="@Review.Description" />
+                    <ValidationMessage For="@(() => Review.Description)" />
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Leave review</button>
+        </EditForm>
     </div>
 }

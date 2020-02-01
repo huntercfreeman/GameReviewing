@@ -22,8 +22,8 @@
                 </div>
                 @game.Title, @(game.Rating)
                 <div @onclick="((MouseEventArgs e) => ReviewGame(e, game))" class="btn btn-primary">Review</div>
-                <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-secondary">Details</div>
-                <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-secondary">Details</div>
+                <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
+                <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
             </div>
                 }
             <ReviewGameComponent Game="@CurrentlyReviewing" Parent="this" />
