@@ -13,6 +13,7 @@ using GameReviewing.Data;
 using GameReviewing.Services.Interfaces;
 using GameReviewing.Services.Implementations;
 using GameReviewing.Models;
+using Blazor.FileReader;
 
 namespace GameReviewing
 {
@@ -36,6 +37,8 @@ namespace GameReviewing
             services.AddSingleton<IGameService, GameServiceImplementationTwo>();
             services.AddSingleton<ILogger, LoggerConsoleImplementation>();
             services.AddSingleton<IUserService, UserService>();
+
+            services.AddFileReaderService(options => options.InitializeOnFirstCall = true);
 
             services.AddScoped<UserState>();
         }

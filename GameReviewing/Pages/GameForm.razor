@@ -13,9 +13,13 @@
         <div class="form-group">
             <label>Image:</label>
             <div>
-                <input type="file" accept=".jfif" @onchange="ImageSelected" />
+                <input @ref="InputElement" type="file" accept=".jfif" @onchange="ImageSelected" />
                 <ValidationMessage For="@(() => Game.Picture)" />
             </div>
+            @if(!string.IsNullOrWhiteSpace(ImageBase64))
+            {
+                <img src="data:image/jfif;base64, @ImageBase64" style="width: 400px;" />
+            }
         </div>
         @if (Adding)
         {

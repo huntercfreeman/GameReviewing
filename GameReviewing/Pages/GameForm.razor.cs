@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blazor.FileReader;
+using System.IO;
 
 namespace GameReviewing.Pages
 {
@@ -19,12 +21,17 @@ namespace GameReviewing.Pages
         public NavigationManager NavigationManager { get; set; }
         [Inject]
         public IJSRuntime JSRuntime { get; set; }
+        [Inject]
+        public IFileReaderService FileReaderService { get; set; }
 
         [Parameter]
         public Game GameParameter { get; set; }
         [Parameter]
         public int Id { get; set; }
 
+        public string ImageBase64 { get; set; }
+
+        public ElementReference InputElement { get; set; }
         public GameFormViewModel Game { get; set; }
         public Game GameFromId { get; set; }
         public EditContext EditContext { get; set; }
@@ -88,9 +95,18 @@ namespace GameReviewing.Pages
             }
         }
 
-        public void ImageSelected()
+        public async void ImageSelected()
         {
-
+            foreach(var file in await FileReaderService.CreateReference(InputElement).EnumerateFilesAsync())
+            {
+                using (MemoryStream memoryStream = await file.CreateMemoryStreamAsync(4 * 1024))
+                {
+                    var imageBytes = new byte[memoryStream.Length];
+                    memoryStream.Read(imageBytes, 0, (int)memoryStream.Length);
+                    ImageBase64 = Convert.ToBase64String(imageBytes);
+                    StateHasChanged();
+                }
+            }
         }
     }
 }
