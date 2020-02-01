@@ -1,21 +1,29 @@
 ﻿@page "/Game/Add"
 @page "/Game/Edit/{Id:int}"
 
-<EditForm EditContext="EditContext" OnSubmit="OnSubmit">
-    <DataAnnotationsValidator />
-    <div class="form-group">
-        <label>Title:</label>
-        <div>
-            <InputText class="form-control" placeholder="Username" @bind-Value="@Game.Title" />
-            <ValidationMessage For="@(() => Game.Title)" />
+    <EditForm EditContext="EditContext" OnSubmit="OnSubmit">
+        <DataAnnotationsValidator />
+        <div class="form-group">
+            <label>Title:</label>
+            <div>
+                <InputText class="form-control" placeholder="Title" @bind-Value="@Game.Title" />
+                <ValidationMessage For="@(() => Game.Title)" />
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label>Image:</label>
-        <div>
-            <input type="file" accept=".jfif" @onchange="ImageSelected" />
-            <ValidationMessage For="@(() => Game.Picture)" />
+        <div class="form-group">
+            <label>Image:</label>
+            <div>
+                <input type="file" accept=".jfif" @onchange="ImageSelected" />
+                <ValidationMessage For="@(() => Game.Picture)" />
+            </div>
         </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Save changes</button>
-</EditForm>
+        @if (Adding)
+        {
+            <button class="btn btn-primary" type="submit">Add Game</button>
+        }
+        else
+        {
+            <button class="btn btn-primary" type="submit">Save changes</button>
+        }
+
+    </EditForm>

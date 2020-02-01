@@ -3,6 +3,7 @@ using GameReviewing.Services.Interfaces;
 using GameReviewing.ViewModels;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace GameReviewing.Pages
     {
         [Inject]
         public IGameService GameService { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+        [Inject]
+        public IJSRuntime JSRuntime { get; set; }
+
         [Parameter]
         public Game GameParameter { get; set; }
         [Parameter]
@@ -23,10 +29,14 @@ namespace GameReviewing.Pages
         public Game GameFromId { get; set; }
         public EditContext EditContext { get; set; }
 
+        public bool Adding { get; set; }
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            
+
+            NavigationManager.LocationChanged += NavigationManager_LocationChanged;
+
             if (Id != 0)
             {
                 GameFromId = GameService.GetGameById(Id);
@@ -46,10 +56,16 @@ namespace GameReviewing.Pages
             }
             else
             {
+                Adding = true;
                 Game = new GameFormViewModel();
             }
 
             EditContext = new EditContext(Game);
+        }
+
+        private void NavigationManager_LocationChanged(object sender, Microsoft.AspNetCore.Components.Routing.LocationChangedEventArgs e)
+        {
+            JSRuntime.InvokeVoidAsync("LocationReload");
         }
 
         public void OnSubmit()
