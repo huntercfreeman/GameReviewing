@@ -1,4 +1,4 @@
-﻿@if (Game != null)
+﻿@if (!Hide && (Game != null))
 {
     <div class="reviewGameComponent" style="position: fixed; top: @(Top)px; left: @(Left)px; background-color: lightgray; padding: 10px; width:425px;">
         <EditForm EditContext="EditContext" OnSubmit="LeaveReview">

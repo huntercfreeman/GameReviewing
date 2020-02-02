@@ -12,5 +12,10 @@ namespace GameReviewing.Services.Implementations
         {
             Console.WriteLine(message);
         }
+
+        public void CookSteak()
+        {
+            Console.WriteLine("cook steak");
+        }
     }
 }

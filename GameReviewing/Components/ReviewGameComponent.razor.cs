@@ -19,6 +19,7 @@ namespace GameReviewing.Components
         [Parameter]
         public GameReviewing.Pages.Index Parent { get; set; }
 
+        public bool Hide { get; set; }
         public ReviewGameViewModel Review { get; set; } = new ReviewGameViewModel() { Rating = 1 };
 
         public EditContext EditContext { get; set; }
@@ -59,6 +60,7 @@ namespace GameReviewing.Components
 
         public void LeaveReview()   
         {
+
             Review review = new Review
             {
                 Rating = Review.Rating,
@@ -67,8 +69,13 @@ namespace GameReviewing.Components
             };
 
             Game.AddReview(review);
-            
+
+            Hide = true;
+
+            StateHasChanged();
+
             Parent.PublicStateHasChanged();
+            
         }
     }
 }
