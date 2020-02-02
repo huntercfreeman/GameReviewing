@@ -11,17 +11,19 @@
 
         <GenericGridList TItem="Game" Items="Games">
             <ItemTemplate Context="game">
-                <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                    <div style="display: flex; align-items: center; width: 200px; height: 200px;">
+                <div style="margin-bottom: 5px; display: flex; align-items: center; flex-direction: column;">
+                    <div style="display: flex; align-items: center; width: 285px; height: 360px;">
                         @if (!string.IsNullOrWhiteSpace(game.ImagePath))
                         {
-                            <img src="@game.ImagePath" style="max-width: 200px; max-height: 200px;" />
+                            <img src="@game.ImagePath" style="max-width: 285px; max-height: 360px;" />
                         }
                     </div>
-                    @game.Title, @(game.Rating)
-                    <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())" />
-                    <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
-                    <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
+                    <div>
+                        @game.Title, @(game.Rating)
+                        <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())" />
+                        <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
+                        <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
+                    </div>
                 </div>
             </ItemTemplate>
         </GenericGridList>
