@@ -9,23 +9,22 @@
     <div>
         <h1>List of Games</h1>
 
-        <div style="position: relative;">
-                @foreach (Game game in Games)
-                {
-                    <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                        <div style="display: flex; align-items: center; width: 200px; height: 200px;">
-                            @if (!string.IsNullOrWhiteSpace(game.ImagePath))
-                            {
-                                <img src="@game.ImagePath" style="max-width: 200px; max-height: 200px;" />
-                            }
-                        </div>
-                        @game.Title, @(game.Rating)
-                        <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())"/>
-                        <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
-                        <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
+        <GenericGridList TItem="Game" Items="Games">
+            <ItemTemplate Context="game">
+                <div style="margin-bottom: 5px; display: flex; align-items: center;">
+                    <div style="display: flex; align-items: center; width: 200px; height: 200px;">
+                        @if (!string.IsNullOrWhiteSpace(game.ImagePath))
+                        {
+                            <img src="@game.ImagePath" style="max-width: 200px; max-height: 200px;" />
+                        }
                     </div>
-                }
-        </div>
+                    @game.Title, @(game.Rating)
+                    <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())" />
+                    <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
+                    <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
+                </div>
+            </ItemTemplate>
+        </GenericGridList>
     </div>
 @code
 {

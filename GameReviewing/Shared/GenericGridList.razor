@@ -1,0 +1,42 @@
+﻿@typeparam TItem
+
+@if (Items == null)
+{
+    @if (NullTemplate != null)
+    {
+        @NullTemplate
+    }
+    else
+    {
+        <img src="content/gifs/loading.gif" />
+    }
+}
+else if (Items.Count == 0)
+{
+    @if (EmptyTemplate != null)
+    {
+        @EmptyTemplate
+    }
+    else
+    {
+        <text>There are no records to show</text>
+    }
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Items)
+        {
+            <div class="col-md-4">
+                @if (ItemTemplate != null)
+                {
+                    @ItemTemplate(item)
+                }
+                else
+                {
+                    <text>Please supply "ItemTemplate" parameter</text>
+                }
+            </div>
+        }
+    </div>
+}
