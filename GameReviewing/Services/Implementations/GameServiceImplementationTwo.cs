@@ -23,25 +23,102 @@ namespace GameReviewing.Services.Implementations
                 Title = "World of Warcraft",
                 Reviews = new List<Review> { new Review { Rating = 5, Description = "Love it", UserUsername = "jarrett_goldberg@gmail.com" } },
                 Id = 1,
-                ImagePath = "content/images/WorldOfWarcraft.jfif"
+                ImagePath = "content/images/World of Warcraft-285x380.jpg"
             },
             new Game
             {
-                Title = "Pokemon",
+                Title = "Smite",
                 Reviews = new List<Review> { new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" } },
                 Id = 2,
-                ImagePath = "content/images/pokemon.jfif"
+                ImagePath = "content/images/Smite-285x380.jpg"
             },
             new Game
             {
-                Title = "Grand Theft Auto",
+                Title = "Elder Scrolls V Skyrim",
                 Reviews = new List<Review> 
                 { 
                     new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
                     new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 3,
-                ImagePath = "content/images/gta.jfif"
+                ImagePath = "content/images/The Elder Scrolls V_ Skyrim-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "Dark Souls",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/Dark Souls-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "Dark Souls II",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/Dark Souls II_ Scholar of the First Sin-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "Hearthstone",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/Hearthstone-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "Portal 2",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/Portal 2-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "League of Legends",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/League of Legends-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "Dota 2",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/Dota 2-285x380.jpg"
+            },
+            new Game
+            {
+                Title = "The Elder Scrolls IV",
+                Reviews = new List<Review>
+                {
+                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                },
+                Id = 3,
+                ImagePath = "content/images/The Elder Scrolls IV_ Oblivion-285x380.jpg"
             }
         };
 
