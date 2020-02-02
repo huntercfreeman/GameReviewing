@@ -1,4 +1,6 @@
-﻿@if (!Hide && (Game != null))
+﻿<div @onclick="((MouseEventArgs e) => ReviewGame(e))" class="btn btn-primary">Review</div>
+
+@if (Show)
 {
     <div class="reviewGameComponent" style="position: fixed; top: @(Top)px; left: @(Left)px; background-color: lightgray; padding: 10px; width:425px;">
         <EditForm EditContext="EditContext" OnSubmit="LeaveReview">
@@ -7,7 +9,7 @@
                 <div style="width: 310px;">
                     Reviewing @Game.Title
                 </div>
-                <div @onclick="(() => Game = null)" style="cursor: pointer;">
+                <div @onclick="(() => Show = false)" style="cursor: pointer;">
                     X
                 </div>
             </div>

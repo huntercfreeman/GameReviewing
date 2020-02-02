@@ -12,21 +12,19 @@
         <div style="position: relative;">
                 @foreach (Game game in Games)
                 {
-            <div style="margin-bottom: 5px; display: flex; align-items: center;">
-                <div style="display: flex; align-items: center; width: 200px; height: 200px;">
-                    @if (!string.IsNullOrWhiteSpace(game.ImagePath))
-                    {
-                        <img src="@game.ImagePath" style="        max-width: 200px;
-        max-height: 200px;" />
-                    }
-                </div>
-                @game.Title, @(game.Rating)
-                <div @onclick="((MouseEventArgs e) => ReviewGame(e, game))" class="btn btn-primary">Review</div>
-                <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
-                <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
-            </div>
+                    <div style="margin-bottom: 5px; display: flex; align-items: center;">
+                        <div style="display: flex; align-items: center; width: 200px; height: 200px;">
+                            @if (!string.IsNullOrWhiteSpace(game.ImagePath))
+                            {
+                                <img src="@game.ImagePath" style="max-width: 200px; max-height: 200px;" />
+                            }
+                        </div>
+                        @game.Title, @(game.Rating)
+                        <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())"/>
+                        <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
+                        <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
+                    </div>
                 }
-            <ReviewGameComponent Game="@CurrentlyReviewing" Parent="this" />
         </div>
     </div>
 @code
@@ -55,14 +53,6 @@
         base.OnInitialized();
 
         Games = GameService.GetGames();
-    }
-
-    public void ReviewGame(MouseEventArgs e, Game game)
-    {
-        CurrentlyReviewing = game;
-
-        ReviewGameComponent.Left = e.ClientX;
-        ReviewGameComponent.Top = e.ClientY;
     }
 
     public void PublicStateHasChanged()
