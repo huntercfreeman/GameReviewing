@@ -19,7 +19,7 @@
                         }
                     </div>
                     <div>
-                        @game.Title, @(game.Rating)
+                        <h5>@game.Title</h5> <h6 style="color:blue;font-family:verdana;">@(game.Rating)</h6>
                         <ReviewGameComponent Game="@game" OnReviewAdded="(() => StateHasChanged())" />
                         <div @onclick="(() => NavigateToGameDetails(game.Id))" class="btn btn-success">Details</div>
                         <div @onclick="(() => NavigateToGameEdit(game.Id))" class="btn btn-warning">Edit</div>
