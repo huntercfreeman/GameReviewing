@@ -468,6 +468,9 @@ namespace GameReviewing.Services.Implementations
             foreach(Game game in _games)
             {
                 string[] titleSplit = game.Title.Split(' ');
+
+                int index = 0;
+
                 foreach(string word in titleSplit)
                 {
                     StringBuilder stringBuilder = new StringBuilder();
@@ -491,6 +494,45 @@ namespace GameReviewing.Services.Implementations
                             _autocompleteSearchDictionary.Add(stringBuilder.ToString(), currentList);
                         }
                     }
+                    foreach(string otherWord in titleSplit.Skip(index + 1))
+                    {
+                        stringBuilder.Append(' ');
+
+                        List<Game> currentListTemp;
+
+                        bool successTemp = _autocompleteSearchDictionary.TryGetValue(stringBuilder.ToString(), out currentListTemp);
+
+                        if (successTemp)
+                        {
+                            currentListTemp.Add(game);
+                        }
+                        else
+                        {
+                            currentListTemp = new List<Game>();
+                            currentListTemp.Add(game);
+                            _autocompleteSearchDictionary.Add(stringBuilder.ToString(), currentListTemp);
+                        }
+
+                        foreach (char character in otherWord)
+                        {
+                            stringBuilder.Append(character);
+
+                            List<Game> currentList;
+
+                            bool success = _autocompleteSearchDictionary.TryGetValue(stringBuilder.ToString(), out currentList);
+
+                            if (success)
+                            {
+                                currentList.Add(game);
+                            }
+                            else
+                            {
+                                currentList = new List<Game>();
+                                currentList.Add(game);
+                                _autocompleteSearchDictionary.Add(stringBuilder.ToString(), currentList);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -505,6 +547,7 @@ namespace GameReviewing.Services.Implementations
         public bool AddGame(Game game)
         {
             _games.Add(game);
+            autocompleteSearchDictionaryNeedsUpdated = true;
 
             return true;
         }
