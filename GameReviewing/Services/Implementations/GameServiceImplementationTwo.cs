@@ -448,6 +448,7 @@ namespace GameReviewing.Services.Implementations
             if(autocompleteSearchDictionaryNeedsUpdated)
             {
                 CreateAutocompleteSearchDictionary();
+                autocompleteSearchDictionaryNeedsUpdated = false;
             }
 
             List<Game> result;
@@ -474,14 +475,21 @@ namespace GameReviewing.Services.Implementations
                     {
                         stringBuilder.Append(character);
 
-                        List<Game> currentList = new List<Game>();
+                        List<Game> currentList;
 
                         bool success = _autocompleteSearchDictionary.TryGetValue(stringBuilder.ToString(), out currentList);
 
-                        currentList.Add(game);
-
-                        if (!success)
+                        
+                        if (success)
+                        {
+                            currentList.Add(game);
+                        }
+                        else
+                        {
+                            currentList = new List<Game>();
+                            currentList.Add(game);
                             _autocompleteSearchDictionary.Add(stringBuilder.ToString(), currentList);
+                        }
                     }
                 }
             }
