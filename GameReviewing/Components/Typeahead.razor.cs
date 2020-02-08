@@ -28,7 +28,19 @@ namespace GameReviewing.Components
         [Parameter]
         public RenderFragment<Game> AutocompleteDropdownItemTemplate { get; set; }
 
-        public List<Game> AutocompleteResults { get; set; } = new List<Game>();
+        private List<Game> _autocompleteResults;
+        public List<Game> AutocompleteResults 
+        {
+            get => _autocompleteResults;
+            set
+            {
+                CurrentIndex = 0;
+                _autocompleteResults = value;
+                StateHasChanged();
+            }
+        }
+
+        public int CurrentIndex { get; set; }
 
         private List<Game> _searchResults;
         public List<Game> SearchResults 
@@ -56,6 +68,12 @@ namespace GameReviewing.Components
                 _searchParameter = value;
                 Autocomplete();
             }
+        }
+
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            AutocompleteResults = new List<Game>();
         }
 
         public void Autocomplete()
@@ -87,6 +105,11 @@ namespace GameReviewing.Components
         {
             Console.WriteLine($"AltKey:{e.AltKey}\nCode:{e.Code}\nCtrlKey:{e.CtrlKey}\nKey:{e.Key}" +
                 $"\nLocation:{e.Location}\nMetaKey:{e.MetaKey}\nRepeat:{e.Repeat}\nShiftKey:{e.ShiftKey}\nType:{e.Type}");
+
+            if (e.Key == "ArrowDown")
+            {
+
+            }
         }
 
         public void OnKeyUp(KeyboardEventArgs e)

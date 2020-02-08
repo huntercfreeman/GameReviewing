@@ -1,0 +1,9 @@
+﻿@if (Parent.AutocompleteDropdownItemTemplate != null)
+{
+    @Parent.AutocompleteDropdownItemTemplate(Self)
+    @MyIndex
+}
+else
+{
+    <div>@Self.Title</div>
+}

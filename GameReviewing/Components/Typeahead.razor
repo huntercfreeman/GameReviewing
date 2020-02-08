@@ -7,16 +7,10 @@
         @if (DisplayAutocompleteDropdown)
         {
             <div style="position: absolute; z-index: 1; background-color: lightgray; width: 100%;">
+                @{int i = 0;}
                 @foreach (Game game in AutocompleteResults)
                 {
-                    if (AutocompleteDropdownItemTemplate != null)
-                    {
-                        @AutocompleteDropdownItemTemplate(game)
-                    }
-                    else
-                    {
-                        <div>@game.Title</div>
-                    }
+                    <TypeaheadAutocompleteDropdownItem Self="game" Parent="this" MyIndex="i++"/>
                 }
             </div>
         }
