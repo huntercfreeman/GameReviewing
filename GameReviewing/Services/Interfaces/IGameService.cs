@@ -13,6 +13,7 @@ namespace GameReviewing.Services.Interfaces
         public List<Game> GetGamesByRating(double rating);
         public Game GetGameById(int id);
         public bool AddGame(Game game);
+        public List<Game> GetGamesByTitle(string title);
 
         public int NextId { get; }
     }

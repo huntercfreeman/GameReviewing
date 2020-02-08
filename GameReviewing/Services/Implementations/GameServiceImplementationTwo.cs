@@ -3,6 +3,7 @@ using GameReviewing.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace GameReviewing.Services.Implementations
@@ -408,6 +409,10 @@ namespace GameReviewing.Services.Implementations
             }
         };
 
+        private Dictionary<string, List<Game>> _autocompleteSearchDictionary = new Dictionary<string, List<Game>>();
+
+        private bool autocompleteSearchDictionaryNeedsUpdated = true;
+
         private int _nextId = 4;
         public int NextId 
         { 
@@ -436,6 +441,50 @@ namespace GameReviewing.Services.Implementations
         {
             _logger.Log("GetGameById");
             return _games.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public List<Game> GetGamesByTitle(string title)
+        {
+            if(autocompleteSearchDictionaryNeedsUpdated)
+            {
+                CreateAutocompleteSearchDictionary();
+            }
+
+            List<Game> result;
+
+            bool success = _autocompleteSearchDictionary.TryGetValue(title, out result);
+            
+            if(success)
+                return result;
+
+            return new List<Game>();
+        }
+
+        public void CreateAutocompleteSearchDictionary()
+        {
+            _autocompleteSearchDictionary = new Dictionary<string, List<Game>>();
+
+            foreach(Game game in _games)
+            {
+                string[] titleSplit = game.Title.Split(' ');
+                foreach(string word in titleSplit)
+                {
+                    StringBuilder stringBuilder = new StringBuilder();
+                    foreach(char character in word)
+                    {
+                        stringBuilder.Append(character);
+
+                        List<Game> currentList = new List<Game>();
+
+                        bool success = _autocompleteSearchDictionary.TryGetValue(stringBuilder.ToString(), out currentList);
+
+                        currentList.Add(game);
+
+                        if (!success)
+                            _autocompleteSearchDictionary.Add(stringBuilder.ToString(), currentList);
+                    }
+                }
+            }
         }
 
         /// <summary>

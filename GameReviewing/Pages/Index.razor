@@ -7,8 +7,10 @@
 @using GameReviewing.Components
 
     <div>
-        <h1>List of Games</h1>
-
+        <div style="display: flex;">
+            <div style="font-size: 40px;">List Of Games</div>
+            <Typeahead/>
+        </div>
         <GenericGridList TItem="Game" Items="Games">
             <ItemTemplate Context="game">
                 <div style="margin-bottom: 5px; display: flex; flex-direction: column;">
