@@ -9,8 +9,8 @@
     <div>
         <div style="display: flex;">
             <div style="font-size: 40px;">List Of Games</div>
-            <Typeahead ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })" />
-            <Typeahead DisplayAutocompleteDropdown="true" ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })">
+            <Typeahead Placeholder="without dropdown" ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })" />
+            <Typeahead Placeholder="with dropdown" DisplayAutocompleteDropdown="true" ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })">
                 <AutocompleteDropdownItemTemplate Context="gameContext">
                     @gameContext.Title
                 </AutocompleteDropdownItemTemplate>

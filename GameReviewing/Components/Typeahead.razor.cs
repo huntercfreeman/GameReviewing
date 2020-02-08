@@ -27,6 +27,8 @@ namespace GameReviewing.Components
         public bool DisplayAutocompleteDropdown { get; set; }
         [Parameter]
         public RenderFragment<Game> AutocompleteDropdownItemTemplate { get; set; }
+        [Parameter]
+        public string Placeholder { get; set; }
 
         public bool ToggleAutocompleteDropdown { get; set; }
 
@@ -100,7 +102,7 @@ namespace GameReviewing.Components
 
         public void FocusOut()
         {
-            ToggleAutocompleteDropdown = false;
+            //ToggleAutocompleteDropdown = false;
         }
 
         public void OnKeyDown(KeyboardEventArgs e)
