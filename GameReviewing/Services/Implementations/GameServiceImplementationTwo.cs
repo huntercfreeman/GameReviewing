@@ -444,7 +444,7 @@ namespace GameReviewing.Services.Implementations
         }
 
         public List<Game> GetGamesByTitle(string title)
-        {
+        {   
             if(autocompleteSearchDictionaryNeedsUpdated)
             {
                 CreateAutocompleteSearchDictionary();

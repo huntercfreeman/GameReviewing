@@ -9,7 +9,7 @@
     <div>
         <div style="display: flex;">
             <div style="font-size: 40px;">List Of Games</div>
-            <Typeahead/>
+            <Typeahead ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })"/>
         </div>
         <GenericGridList TItem="Game" Items="Games">
             <ItemTemplate Context="game">
