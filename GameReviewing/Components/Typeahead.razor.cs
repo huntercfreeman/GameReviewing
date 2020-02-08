@@ -102,7 +102,7 @@ namespace GameReviewing.Components
 
         public void FocusOut()
         {
-            //ToggleAutocompleteDropdown = false;
+            ToggleAutocompleteDropdown = false;
         }
 
         public void OnKeyDown(KeyboardEventArgs e)
