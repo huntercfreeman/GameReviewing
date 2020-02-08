@@ -451,6 +451,11 @@ namespace GameReviewing.Services.Implementations
                 autocompleteSearchDictionaryNeedsUpdated = false;
             }
 
+            if(string.IsNullOrEmpty(title))
+            {
+                return GetGames();
+            }
+
             List<Game> result;
 
             bool success = _autocompleteSearchDictionary.TryGetValue(title, out result);

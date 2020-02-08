@@ -1,6 +1,7 @@
 ﻿using GameReviewing.Models;
 using GameReviewing.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,12 @@ namespace GameReviewing.Components
         // instead of searching.
         [Parameter]
         public bool ResultsAreSame { get; set; }
-        public List<Game> AutocompleteResults { get; set; }
+        [Parameter]
+        public bool DisplayAutocompleteDropdown { get; set; }
+        [Parameter]
+        public RenderFragment<Game> AutocompleteDropdownItemTemplate { get; set; }
+
+        public List<Game> AutocompleteResults { get; set; } = new List<Game>();
 
         private List<Game> _searchResults;
         public List<Game> SearchResults 
@@ -65,6 +71,29 @@ namespace GameReviewing.Components
                 SearchResults = GameService.GetGamesByTitle(SearchParameter);
                 OnSearch.InvokeAsync(AutocompleteResults);
             }
+        }
+
+        public void FocusIn()
+        {
+            Console.WriteLine("Focus In");
+        }
+
+        public void FocusOut()
+        {
+            Console.WriteLine("Focus Out");
+        }
+
+        public void OnKeyDown(KeyboardEventArgs e)
+        {
+            Console.WriteLine($"AltKey:{e.AltKey}\nCode:{e.Code}\nCtrlKey:{e.CtrlKey}\nKey:{e.Key}" +
+                $"\nLocation:{e.Location}\nMetaKey:{e.MetaKey}\nRepeat:{e.Repeat}\nShiftKey:{e.ShiftKey}\nType:{e.Type}");
+        }
+
+        public void OnKeyUp(KeyboardEventArgs e)
+        {
+            // Holding key down will call OnKeyDown multiple times no need to do what I thought I needed to do to implement OnKeyHoldDown logic.
+            Console.WriteLine($"AltKey:{e.AltKey}\nCode:{e.Code}\nCtrlKey:{e.CtrlKey}\nKey:{e.Key}" +
+                $"\nLocation:{e.Location}\nMetaKey:{e.MetaKey}\nRepeat:{e.Repeat}\nShiftKey:{e.ShiftKey}\nType:{e.Type}");
         }
     }
 }
