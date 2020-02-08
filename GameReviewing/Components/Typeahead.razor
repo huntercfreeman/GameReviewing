@@ -4,7 +4,7 @@
     Filter:
     <div style="position: relative;">
         <input @bind="SearchParameter" @bind:event="oninput" type="text" @onfocusin="FocusIn" @onfocusout="FocusOut" @onkeydown="OnKeyDown" @onkeyup="OnKeyUp"/>
-        @if (DisplayAutocompleteDropdown)
+        @if (DisplayAutocompleteDropdown && ToggleAutocompleteDropdown)
         {
             <div style="position: absolute; z-index: 1; background-color: lightgray; width: 100%;">
                 @{int i = 0;}

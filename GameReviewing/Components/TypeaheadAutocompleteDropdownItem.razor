@@ -1,7 +1,9 @@
 ﻿@if (Parent.AutocompleteDropdownItemTemplate != null)
 {
-    @Parent.AutocompleteDropdownItemTemplate(Self)
-    @MyIndex
+    <div>
+        @Parent.AutocompleteDropdownItemTemplate(Self)
+        @MyIndex
+    </div>
 }
 else
 {

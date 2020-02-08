@@ -28,6 +28,8 @@ namespace GameReviewing.Components
         [Parameter]
         public RenderFragment<Game> AutocompleteDropdownItemTemplate { get; set; }
 
+        public bool ToggleAutocompleteDropdown { get; set; }
+
         private List<Game> _autocompleteResults;
         public List<Game> AutocompleteResults 
         {
@@ -93,12 +95,12 @@ namespace GameReviewing.Components
 
         public void FocusIn()
         {
-            Console.WriteLine("Focus In");
+            ToggleAutocompleteDropdown = true;
         }
 
         public void FocusOut()
         {
-            Console.WriteLine("Focus Out");
+            ToggleAutocompleteDropdown = false;
         }
 
         public void OnKeyDown(KeyboardEventArgs e)

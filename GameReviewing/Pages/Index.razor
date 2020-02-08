@@ -12,7 +12,7 @@
             <Typeahead ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })" />
             <Typeahead DisplayAutocompleteDropdown="true" ResultsAreSame="true" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })">
                 <AutocompleteDropdownItemTemplate Context="gameContext">
-                    <div>@gameContext.Title</div>
+                    @gameContext.Title
                 </AutocompleteDropdownItemTemplate>
             </Typeahead>
         </div>
