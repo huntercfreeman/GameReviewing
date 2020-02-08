@@ -413,7 +413,7 @@ namespace GameReviewing.Services.Implementations
 
         private bool autocompleteSearchDictionaryNeedsUpdated = true;
 
-        private int _nextId = 4;
+        private int _nextId = 37;
         public int NextId 
         { 
             get => _nextId++;
