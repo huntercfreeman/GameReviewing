@@ -123,6 +123,12 @@ namespace GameReviewing.Components
 
                 StateHasChanged();
             }
+            else if (e.Key == "Enter")
+            {
+                SearchParameter = AutocompleteResults[CurrentIndex].Title;
+
+                StateHasChanged();
+            }
         }
     }
 }
