@@ -1,11 +1,11 @@
 ﻿@if (Parent.AutocompleteDropdownItemTemplate != null)
 {
-    <div>
+    <div style="@HoveredCSS">
         @Parent.AutocompleteDropdownItemTemplate(Self)
         @MyIndex
     </div>
 }
 else
 {
-    <div>@Self.Title</div>
+    <div style="@HoveredCSS">@Self.Title</div>
 }

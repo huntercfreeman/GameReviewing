@@ -105,20 +105,24 @@ namespace GameReviewing.Components
 
         public void OnKeyDown(KeyboardEventArgs e)
         {
-            Console.WriteLine($"AltKey:{e.AltKey}\nCode:{e.Code}\nCtrlKey:{e.CtrlKey}\nKey:{e.Key}" +
-                $"\nLocation:{e.Location}\nMetaKey:{e.MetaKey}\nRepeat:{e.Repeat}\nShiftKey:{e.ShiftKey}\nType:{e.Type}");
-
-            if (e.Key == "ArrowDown")
+            if (e.Key == "ArrowUp")
             {
+                CurrentIndex--;
 
+                if (CurrentIndex < 0)
+                    CurrentIndex = AutocompleteResults.Count - 1;
+
+                StateHasChanged();
             }
-        }
+            else if (e.Key == "ArrowDown")
+            {
+                CurrentIndex++;
 
-        public void OnKeyUp(KeyboardEventArgs e)
-        {
-            // Holding key down will call OnKeyDown multiple times no need to do what I thought I needed to do to implement OnKeyHoldDown logic.
-            Console.WriteLine($"AltKey:{e.AltKey}\nCode:{e.Code}\nCtrlKey:{e.CtrlKey}\nKey:{e.Key}" +
-                $"\nLocation:{e.Location}\nMetaKey:{e.MetaKey}\nRepeat:{e.Repeat}\nShiftKey:{e.ShiftKey}\nType:{e.Type}");
+                if (CurrentIndex == AutocompleteResults.Count)
+                    CurrentIndex = 0;
+
+                StateHasChanged();
+            }
         }
     }
 }

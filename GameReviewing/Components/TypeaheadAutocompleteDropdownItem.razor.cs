@@ -18,7 +18,7 @@ namespace GameReviewing.Components
 
         public string HoveredCSS 
         {
-            get => Parent.CurrentIndex == MyIndex ? "isHovered" : "";
+            get => Parent.CurrentIndex == MyIndex ? "background-color: blue;" : "";
         }
 
         protected override void OnInitialized()
