@@ -404,7 +404,7 @@ namespace GameReviewing.Services.Implementations
                     new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
                     new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
-                Id = 36,
+                Id = 36,    
                 ImagePath = "content/images/World of Tanks-285x380.jpg"
             }
         };

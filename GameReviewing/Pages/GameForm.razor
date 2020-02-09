@@ -15,6 +15,15 @@
             <div>
                 <input @ref="InputElement" type="file" accept=".jfif, .jpg" @onchange="ImageSelected" />
                 <ValidationMessage For="@(() => Game.Picture)" />
+                @if (ShowImageValidationErrors)
+                {
+                    <div>
+                        @foreach (string validationError in ImageValidationErrors)
+                        {
+                            <div style="color: red;">@validationError</div>
+                        }
+                    </div>
+                }
             </div>
             @if(!string.IsNullOrWhiteSpace(ImageBase64))
             {
