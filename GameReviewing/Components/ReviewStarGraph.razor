@@ -1,7 +1,15 @@
 ﻿<div class="reviewStarGraph" style="display: flex;">
-    <Star Percentage="100" />
-    <Star Percentage="100" />
-    <Star Percentage="100" />
-    <Star Percentage="100" />
-    <Star Percentage="10" />
+    @for (int i = 0; i < 5; i++)
+    {
+        if (Rating >= 1)
+        {
+            Rating--;
+            <Star Percentage="100" />
+        }
+        else
+        {
+            <Star Percentage="Rating * 100"/>
+            Rating = 0;
+        }
+    }
 </div>
