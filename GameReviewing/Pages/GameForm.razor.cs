@@ -85,65 +85,76 @@ namespace GameReviewing.Pages
 
         public void OnSubmit()
         {
-            ImageValidationErrors = new List<string>();
-            ShowImageValidationErrors = false;
+            bool isValid = EditContext.Validate();
 
-            if(Id != 0)
+            if (isValid)
             {
-                if(!string.IsNullOrWhiteSpace(ImageBase64))
-                {
-                    string newImagePath = GetNewImagePath();
+                ImageValidationErrors = new List<string>();
+                ShowImageValidationErrors = false;
 
-                    if (!string.IsNullOrWhiteSpace(newImagePath))
+                if (Id != 0)
+                {
+                    if (!string.IsNullOrWhiteSpace(ImageBase64))
+                    {
+                        string newImagePath = GetNewImagePath();
+
+                        if (!string.IsNullOrWhiteSpace(newImagePath))
+                        {
+                            GameFromId.Title = Game.Title;
+                            GameFromId.ImagePath = newImagePath;
+                        }
+                        else
+                        {
+                            ShowImageValidationErrors = true;
+                        }
+                    }
+                    else
                     {
                         GameFromId.Title = Game.Title;
-                        GameFromId.ImagePath = newImagePath;
+                    }
+                }
+                else if (GameParameter != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(ImageBase64))
+                    {
+                        string newImagePath = GetNewImagePath();
+
+                        if (!string.IsNullOrWhiteSpace(newImagePath))
+                        {
+                            GameParameter.Title = Game.Title;
+                            GameParameter.ImagePath = newImagePath;
+                        }
+                        else
+                        {
+                            ShowImageValidationErrors = true;
+                        }
                     }
                     else
                     {
-                        ShowImageValidationErrors = true;
+                        GameParameter.Title = Game.Title;
                     }
                 }
                 else
-                {
-                    GameFromId.Title = Game.Title;
-                }
-            }
-            else if(GameParameter != null)
-            {
-                if (!string.IsNullOrWhiteSpace(ImageBase64))
                 {
                     string newImagePath = GetNewImagePath();
 
                     if (!string.IsNullOrWhiteSpace(newImagePath))
                     {
-                        GameParameter.Title = Game.Title;
-                        GameParameter.ImagePath = newImagePath;
+                        GameService.AddGame(new Game { Id = GameService.NextId, Title = Game.Title, ImagePath = newImagePath });
                     }
                     else
                     {
                         ShowImageValidationErrors = true;
                     }
                 }
-                else
-                {
-                    GameParameter.Title = Game.Title;
-                }
-            }
-            else
-            {
-                string newImagePath = GetNewImagePath();
 
-                if(!string.IsNullOrWhiteSpace(newImagePath))
-                {
-                    GameService.AddGame(new Game { Id = GameService.NextId, Title = Game.Title, ImagePath = newImagePath });
-                }
-                else
-                {
-                    ShowImageValidationErrors = true;
-                }
+
+                if (ImageValidationErrors.Count > 0)
+                    isValid = false;
+
+                if (isValid)
+                    NavigationManager.NavigateTo("");
             }
-            NavigationManager.NavigateTo("");
         }
 
         public async void ImageSelected()
