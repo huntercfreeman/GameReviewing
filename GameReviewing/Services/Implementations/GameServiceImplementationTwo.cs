@@ -17,19 +17,28 @@ namespace GameReviewing.Services.Implementations
             _logger = logger;
         }
 
+        public static double RandomRating 
+        { 
+            get
+            {
+                Random rnd = new Random();
+                return rnd.NextDouble() * 5;
+            }
+        }
+
         private List<Game> _games = new List<Game>()
         {
             new Game
             {
                 Title = "World of Warcraft",
-                Reviews = new List<Review> { new Review { Rating = 5, Description = "Love it", UserUsername = "jarrett_goldberg@gmail.com" } },
+                Reviews = new List<Review> { new Review { Rating = RandomRating, Description = "Love it", UserUsername = "jarrett_goldberg@gmail.com" } },
                 Id = 1,
                 ImagePath = "content/images/World of Warcraft-285x380.jpg"
             },
             new Game
             {
                 Title = "Smite",
-                Reviews = new List<Review> { new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" } },
+                Reviews = new List<Review> { new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" } },
                 Id = 2,
                 ImagePath = "content/images/Smite-285x380.jpg"
             },
@@ -38,8 +47,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Elder Scrolls V Skyrim",
                 Reviews = new List<Review> 
                 { 
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 3,
                 ImagePath = "content/images/The Elder Scrolls V_ Skyrim-285x380.jpg"
@@ -49,8 +58,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Dark Souls",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 4,
                 ImagePath = "content/images/Dark Souls-285x380.jpg"
@@ -60,8 +69,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Dark Souls II",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 5,
                 ImagePath = "content/images/Dark Souls II_ Scholar of the First Sin-285x380.jpg"
@@ -71,8 +80,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Hearthstone",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 6,
                 ImagePath = "content/images/Hearthstone-285x380.jpg"
@@ -82,8 +91,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Portal 2",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 7,
                 ImagePath = "content/images/Portal 2-285x380.jpg"
@@ -93,8 +102,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "League of Legends",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 8,
                 ImagePath = "content/images/League of Legends-285x380.jpg"
@@ -104,8 +113,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Dota 2",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 9,
                 ImagePath = "content/images/Dota 2-285x380.jpg"
@@ -115,8 +124,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "The Elder Scrolls IV",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 10,
                 ImagePath = "content/images/The Elder Scrolls IV_ Oblivion-285x380.jpg"
@@ -126,8 +135,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Apex Legends",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 11,
                 ImagePath = "content/images/Apex Legends-285x380.jpg"
@@ -137,8 +146,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Call of Duty Modern Warfare",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 12,
                 ImagePath = "content/images/Call of Duty_ Modern Warfare-285x380.jpg"
@@ -148,8 +157,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Counter-Strike Global Offensive",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 13,
                 ImagePath = "content/images/Counter-Strike_ Global Offensive-285x380.jpg"
@@ -159,8 +168,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Dead by Daylight",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 14,
                 ImagePath = "content/images/Dead by Daylight-285x380.jpg"
@@ -170,8 +179,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Destiny 2",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 15,
                 ImagePath = "content/images/Destiny 2-285x380.jpg"
@@ -181,8 +190,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Detroit Become Human",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 16,
                 ImagePath = "content/images/Detroit_ Become Human-285x380.jpg"
@@ -192,8 +201,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Escape From Tarkov",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 17,
                 ImagePath = "content/images/Escape From Tarkov-285x380.jpg"
@@ -203,8 +212,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "FIFA",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 18,
                 ImagePath = "content/images/FIFA 20-285x380.jpg"
@@ -214,8 +223,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Fortnite",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 19,
                 ImagePath = "content/images/Fortnite-285x380.jpg"
@@ -225,8 +234,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Grand Theft Auto",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 20,
                 ImagePath = "content/images/Grand Theft Auto V-285x380.jpg"
@@ -236,8 +245,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Journey to the Savage Planet",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 21,
                 ImagePath = "content/images/Journey to the Savage Planet-285x380.jpg"
@@ -247,8 +256,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Jump Off The Bridge",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 22,
                 ImagePath = "content/images/Jump Off The Bridge-285x380.jpg"
@@ -258,8 +267,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Legends of Runeterra",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 23,
                 ImagePath = "content/images/Legends of Runeterra-285x380.jpg"
@@ -269,8 +278,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Magic The Gathering",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 24,
                 ImagePath = "content/images/Magic_ The Gathering-285x380.jpg"
@@ -280,8 +289,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Minecraft",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 25,
                 ImagePath = "content/images/Minecraft-285x380.jpg"
@@ -291,8 +300,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Overwatch",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 26,
                 ImagePath = "content/images/Overwatch-285x380.jpg"
@@ -302,8 +311,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Path of Exile",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 27,
                 ImagePath = "content/images/Path of Exile-285x380.jpg"
@@ -313,8 +322,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "PLAYERUNKNOWN'S BATTLEGROUNDS",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 28,
                 ImagePath = "content/images/PLAYERUNKNOWN'S BATTLEGROUNDS-285x380.jpg"
@@ -324,8 +333,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Poker",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 29,
                 ImagePath = "content/images/Poker-285x380.jpg"
@@ -335,8 +344,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "ScourgeBringer",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 30,
                 ImagePath = "content/images/ScourgeBringer-285x380.jpg"
@@ -346,8 +355,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Super Mario",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 31,
                 ImagePath = "content/images/Super Mario 64-285x380.jpg"
@@ -357,8 +366,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Teamfight Tactics",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 32,
                 ImagePath = "content/images/Teamfight Tactics-285x380.jpg"
@@ -368,8 +377,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "They Are Billions",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 33,
                 ImagePath = "content/images/They Are Billions-285x380.jpg"
@@ -379,8 +388,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Tom Clancy's Rainbow Six Siege",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 34,
                 ImagePath = "content/images/Tom Clancy's Rainbow Six_ Siege-285x380.jpg"
@@ -390,8 +399,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "Warcraft III",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 35,
                 ImagePath = "content/images/Warcraft III-285x380.jpg"
@@ -401,8 +410,8 @@ namespace GameReviewing.Services.Implementations
                 Title = "World of Tanks",
                 Reviews = new List<Review>
                 {
-                    new Review { Rating = 5, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
-                    new Review { Rating = 1, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
+                    new Review { Rating = RandomRating, Description = "Love it", UserUsername = "tim_gane@gmail.com" },
+                    new Review { Rating = RandomRating, Description = "Hate it", UserUsername = "john_smith@gmail.com" }
                 },
                 Id = 36,    
                 ImagePath = "content/images/World of Tanks-285x380.jpg"
