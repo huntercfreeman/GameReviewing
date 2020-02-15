@@ -90,11 +90,45 @@ namespace GameReviewing.Pages
 
             if(Id != 0)
             {
-                GameFromId.Title = Game.Title;
+                if(!string.IsNullOrWhiteSpace(ImageBase64))
+                {
+                    string newImagePath = GetNewImagePath();
+
+                    if (!string.IsNullOrWhiteSpace(newImagePath))
+                    {
+                        GameFromId.Title = Game.Title;
+                        GameFromId.ImagePath = newImagePath;
+                    }
+                    else
+                    {
+                        ShowImageValidationErrors = true;
+                    }
+                }
+                else
+                {
+                    GameFromId.Title = Game.Title;
+                }
             }
             else if(GameParameter != null)
             {
-                GameParameter.Title = Game.Title;
+                if (!string.IsNullOrWhiteSpace(ImageBase64))
+                {
+                    string newImagePath = GetNewImagePath();
+
+                    if (!string.IsNullOrWhiteSpace(newImagePath))
+                    {
+                        GameParameter.Title = Game.Title;
+                        GameParameter.ImagePath = newImagePath;
+                    }
+                    else
+                    {
+                        ShowImageValidationErrors = true;
+                    }
+                }
+                else
+                {
+                    GameParameter.Title = Game.Title;
+                }
             }
             else
             {
@@ -109,6 +143,7 @@ namespace GameReviewing.Pages
                     ShowImageValidationErrors = true;
                 }
             }
+            NavigationManager.NavigateTo("");
         }
 
         public async void ImageSelected()
