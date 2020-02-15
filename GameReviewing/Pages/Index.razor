@@ -11,7 +11,7 @@
         <div style="display: flex;">
             <div style="font-size: 40px;">List Of Games</div>
             <div style="align-items: center; display: flex;">
-                <Typeahead DisableDefaultItemStyles="true" ItemType="Game" DisplayAutocompleteDropdown="true" Selector="((Game x) => x.Title)" Text="Search:" Placeholder=""
+                <Typeahead ItemType="Game" DisplayAutocompleteDropdown="true" Selector="((Game x) => x.Title)" Text="Search:" Placeholder=""
                            Filter="(async (x) => GameService.GetGamesByTitle(x))" OnAutocomplete="((x) => { Games = x; StateHasChanged(); })" ResultsAreSame="true">
                     <AutocompleteDropdownItemTemplate Context="searchContext">
                         <div>@searchContext.Title</div>

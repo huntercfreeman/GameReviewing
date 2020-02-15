@@ -25,9 +25,20 @@
                     </div>
                 }
             </div>
-            @if(!string.IsNullOrWhiteSpace(ImageBase64))
+            @if (!string.IsNullOrWhiteSpace(ImageBase64))
             {
-                <img src="data:image/jfif;base64, @ImageBase64" style="width: 400px;" />
+                <img src="data:image/jfif;base64, @ImageBase64" style="width: 285px; height: 380px;" />
+            }
+            else
+            {
+                @if (!string.IsNullOrWhiteSpace(GameParameter?.ImagePath))
+                {
+                    <img src="@GameParameter.ImagePath" style="width: 285px; height: 380px;" />
+                }
+                else if (!string.IsNullOrWhiteSpace(GameFromId?.ImagePath))
+                {
+                    <img src="@GameFromId.ImagePath" style="width: 285px; height: 380px;" />
+                }
             }
         </div>
         @if (Adding)
