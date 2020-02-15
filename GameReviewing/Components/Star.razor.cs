@@ -8,6 +8,7 @@ namespace GameReviewing.Components
 {
     public partial class Star : ComponentBase
     {
-
+        [Parameter]
+        public double Percentage { get; set; }
     }
 }
