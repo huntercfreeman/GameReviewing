@@ -1,12 +1,18 @@
 ﻿@page "/Game/Details/{Id:int}"
 @using GameReviewing.Models
+@using GameReviewing.Components
 
-<img src="@ThisGame.ImagePath" />
 <h1>@ThisGame.Title</h1>
-<ul>
-    @foreach(Review review in ThisGame.GetReviews())
+<img src="@ThisGame.ImagePath" />
+
+
+
+
+<div class="reviews">
+    <GameReviewing.Components.ReviewGameComponent Game="ThisGame" OnReviewAdded="(() => StateHasChanged())" />
+    <h4>Reviews</h4>
+    @foreach (Review review in ThisGame.GetReviews())
     {
-        <li>@review.Rating, @review.Description, @review.UserUsername</li>    
+        <ReviewRenderer Review="review" Game="ThisGame" />
     }
-    <GameReviewing.Components.ReviewGameComponent Game="ThisGame" OnReviewAdded="(() => StateHasChanged())"/>
-</ul>
+</div>
