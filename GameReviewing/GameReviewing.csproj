@@ -10,4 +10,8 @@
     <PackageReference Include="Tewr.Blazor.FileReader" Version="1.2.0.19363" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DTK\Prototype\DM2BD.DTK.Solution\TypeaheadBlazor\DM2BD.Typeahead.csproj" />
+  </ItemGroup>
+
 </Project>
