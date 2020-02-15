@@ -11,7 +11,7 @@ namespace GameReviewing.Models
 
         public string Title { get; set; }
 
-        private List<Review> _reviews { get; set; }
+        private List<Review> _reviews { get; set; } = new List<Review>();
 
         public List<Review> Reviews 
         {
