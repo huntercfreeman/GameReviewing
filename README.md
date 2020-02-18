@@ -1,2 +1,2 @@
 ## Game Reviewing
-To seee the site, visit: https://gamereviewsite.github.io/
+To see the WIP, visit: https://gamereviewsite.github.io/
