@@ -1,0 +1,3 @@
+[submodule "DM2BD.Typeahead"]
+	path = DM2BD.Typeahead
+	url = https://github.com/huntercfreeman/DM2BD.Typeahead.git
